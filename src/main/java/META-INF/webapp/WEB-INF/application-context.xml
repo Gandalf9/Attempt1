@@ -12,5 +12,8 @@
        Beans defined in the web-context will not be available in the application
        context.
    -->
+   
+   <!-- Scans the classpath of the application for @Components to deploy as beans -->	
+	<context:component-scan base-package="org.gov" />
 	
 </beans>

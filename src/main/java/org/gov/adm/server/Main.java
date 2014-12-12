@@ -1,4 +1,4 @@
-package com.sjl;
+package org.gov.adm.server;
 
 public class Main
 {
