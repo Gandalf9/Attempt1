@@ -1,9 +1,9 @@
 package org.gov.adm.business;
 
-import org.gov.adm.presentation.model.HomePageModel;
+import org.gov.adm.presentation.model.Model;
 
 public interface ADMService {
 	
-	String submitHomePage(HomePageModel passObject);
+	String submit(Model passObject);
 	
 }

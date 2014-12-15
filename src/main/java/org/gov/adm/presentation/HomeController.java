@@ -27,7 +27,7 @@ public class HomeController {
 	@RequestMapping("/decision")
 	public String whereToGo(@ModelAttribute("yatin") HomePageModel homePage, ModelMap model) {
 
-		String page = service.submitHomePage(homePage);
+		String page = service.submit(homePage);
 		
 		return "redirect:" + page;
 	}

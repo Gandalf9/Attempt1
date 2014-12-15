@@ -1,9 +1,9 @@
 package org.gov.adm.business;
 
-import org.gov.adm.businessobjects.HomePageRuleResult;
+import org.gov.adm.presentation.model.Model;
 
 public interface PageFlowEngine {
 
-	String getNextPage(HomePageRuleResult result);
+	String getNextPage(String state, Model data);
 	
 }
