@@ -1,9 +1,13 @@
 package org.gov.adm.business;
 
-import org.gov.adm.presentation.model.Model;
+import org.gov.adm.businessobjects.Decision;
 
 public interface RuleEngine {
 	
-	String fireRule(Model section);
-
+	String fireRuleGrantAsylum(Decision decision);
+	String fireRelevence(Decision decision);
+	String fireSuitability(Decision decision);
+	String fireChild(Decision decision);
+	String firePartner(Decision decision);
+	String firePrivateLife(Decision decision);
 }

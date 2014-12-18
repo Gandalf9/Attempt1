@@ -4,7 +4,7 @@
 <html>
   <body>
     <p>
-    <form:form method="post" action="/decision1" modelAttribute="yatin">
+    <form:form method="post" action="/decisionRelevence" modelAttribute="relevenceModel">
     <spring:message code="question2"/>
     
     <form:checkbox path="relevence" value="child"/><spring:message code="question2.answer1"/>

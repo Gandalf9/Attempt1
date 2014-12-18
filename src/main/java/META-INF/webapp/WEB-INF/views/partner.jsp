@@ -4,10 +4,10 @@
 <html>
   <body>
     <p>
-    <form:form method="post" action="/decision" modelAttribute="yatin">
-    <spring:message code="question1"/>
+    <form:form method="post" action="/partnerDecision" modelAttribute="partnerModel">
+    <spring:message code="questionPartner"/>
     
-    <form:checkbox path="qualify" />
+    <form:checkbox path="partner" />
     <input type="submit" value="Submit"/>
     </form:form>
     </p>
