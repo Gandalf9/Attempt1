@@ -1,5 +1,8 @@
 package org.gov.adm.presentation;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.gov.adm.business.ADMService;
 import org.gov.adm.businessobjects.RelevenceData;
 import org.gov.adm.businessobjects.RelevenceSubSection;
@@ -15,30 +18,35 @@ public class RelevenceController {
 
 	@Autowired
 	ADMService service;
-	
+
 	@RequestMapping("/relevence")
-	public String relevence(ModelMap model)
-	{
+	public String relevence(ModelMap model) {
 		RelevenceModel pageModel = new RelevenceModel();
-		pageModel.setRelevence(new String[] {"child"});
-		
+		pageModel.setRelevence(new String[] { "child" });
+
 		model.addAttribute("relevenceModel", pageModel);
-		
+
 		return "relevence";
 	}
-	
+
 	@RequestMapping("/decisionRelevence")
-	public String decision(@ModelAttribute("relevenceModel") RelevenceModel pageModel, ModelMap model)
-	{
+	public String decision(@ModelAttribute("relevenceModel") RelevenceModel pageModel, ModelMap model) {
 		String[] relevence = pageModel.getRelevence();
-			
 		RelevenceSubSection relevenceModel = new RelevenceSubSection();
-		RelevenceData relevenceData = new RelevenceData();
-		if (relevence.length > 0 && relevence[0] != null) relevenceData.setChildFlag(true);
-		if (relevence.length > 1 && relevence[1] != null) relevenceData.setPartnerFlag(true);
-		if (relevence.length > 2 && relevence[2] != null) relevenceData.setPrivateFlag(true);
-		relevenceModel.setRelevenceData(relevenceData);
-		
+
+		if (relevence.length > 0) {
+			List<String> rel = Arrays.asList(relevence);
+
+			RelevenceData relevenceData = new RelevenceData();
+			if (rel.contains("child"))
+				relevenceData.setChildFlag(true);
+			if (rel.contains("partner"))
+				relevenceData.setPartnerFlag(true);
+			if (rel.contains("privateLife"))
+				relevenceData.setPrivateFlag(true);
+			relevenceModel.setRelevenceData(relevenceData);
+		}
+
 		String page = service.submitRelevenceSubSection(relevenceModel);
 		return "redirect:" + page;
 	}

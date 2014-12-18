@@ -3,7 +3,6 @@ package org.gov.adm.presentation;
 import org.gov.adm.business.ADMService;
 import org.gov.adm.businessobjects.PartnerData;
 import org.gov.adm.businessobjects.PartnerSubSection;
-import org.gov.adm.presentation.model.GrantAsylumModel;
 import org.gov.adm.presentation.model.PartnerModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +18,7 @@ public class PartnerController {
 	
 	@RequestMapping("/partner")
 	public String partner(ModelMap model) {
-		GrantAsylumModel pageModel = new GrantAsylumModel();
-		pageModel.setGrant(true);
+		PartnerModel pageModel = new PartnerModel();
 
 		model.addAttribute("partnerModel", pageModel);
 
