@@ -15,7 +15,7 @@ public class GrantAsylumController {
 
 	@Autowired
 	ADMService service;
-	
+
 	@RequestMapping("/")
 	public String home(ModelMap model) {
 		GrantAsylumModel pageModel = new GrantAsylumModel();

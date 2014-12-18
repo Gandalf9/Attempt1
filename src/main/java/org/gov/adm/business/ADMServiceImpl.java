@@ -80,7 +80,8 @@ public class ADMServiceImpl implements ADMService {
 		Decision decision = subSectionRepo.persistPrivateLifeSubSection(1, section);
 		
 		String state = ruleEngine.firePrivateLife(decision);
-		return pageEngine.submitPrivateLife(state, decision);
+		return pageEngine.submitPrivateLife(state, decision);		
+
 	}
 
 }

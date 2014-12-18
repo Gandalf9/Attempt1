@@ -12,7 +12,6 @@ public class RuleEngineImpl implements RuleEngine {
 	public static final String SUITABILE = "Suitable";
 	public static final String NO_RULE_NEEDED = "NoRule";
 
-	
 	@Override
 	public String fireRuleGrantAsylum(Decision decision) {
 		if (decision.getArticle8Section().getGrantAsylumSubSection().getGrantAsylumData().isGranted()) {
