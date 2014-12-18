@@ -1,9 +1,11 @@
 package org.gov.adm.business;
 
-import org.gov.adm.presentation.model.Model;
+import org.gov.adm.businessobjects.GrantAsylumSubSection;
+import org.gov.adm.businessobjects.RelevenceSubSection;
 
 public interface ADMService {
 	
-	String submit(Model passObject);
+	String submitGrantSubSection(GrantAsylumSubSection section);
+	String submitRelevenceSubSection(RelevenceSubSection section);
 	
 }
