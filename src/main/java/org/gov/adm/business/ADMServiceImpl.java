@@ -7,6 +7,7 @@ import org.gov.adm.businessobjects.PartnerSubSection;
 import org.gov.adm.businessobjects.PrivateLifeSubSection;
 import org.gov.adm.businessobjects.RelevenceSubSection;
 import org.gov.adm.businessobjects.SuitabilitySubSection;
+import org.gov.adm.respository.RuleRepository;
 import org.gov.adm.respository.SectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +21,11 @@ public class ADMServiceImpl implements ADMService {
 	@Autowired
 	private RuleEngine ruleEngine;
 	
-//	@Autowired
-//	private RuleRepository ruleRepo;
+	//@Autowired
+	//private RuleRepository ruleRepo;
 	
-	@Autowired NavigationEngine pageEngine;
+	@Autowired 
+	private NavigationEngine pageEngine;
 	
 	@Override
 	public String submitGrantSubSection(GrantAsylumSubSection section) {
@@ -31,9 +33,23 @@ public class ADMServiceImpl implements ADMService {
 		//Persist the sectionData and retrieve a Decision
 		Decision decision = subSectionRepo.persistGrantAsylumSubSection(1, section);
 		
-		String state = ruleEngine.fireRuleGrantAsylum(decision);
+		//String state = ruleEngine.fireRuleGrantAsylum(decision);
+		RuleEngineDrools ruleEngineDrools = new RuleEngineDrools();
+		ruleEngineDrools.fireRuleGrantAsylum(decision);
+		String state= ruleEngineDrools.getUtil().getStrings().get(0);
+		System.out.println("Stste Returned----->"+state);
+		
+		//If the page returned is a document page
+		//Go to the document store and retreive relevent documentation
+		//Send documentation to the front end to be edited
 		return pageEngine.submitGrantAsylum(state, decision);
 	}
+	
+	//METHOD - submitGrantSubSectionDocumentation
+	//Store the documentation against the decision in a sensible place
+	
+	//METHOD - produceDocumentation
+	// Call the publishing service
 
 	@Override
 	public String submitRelevenceSubSection(RelevenceSubSection section) {

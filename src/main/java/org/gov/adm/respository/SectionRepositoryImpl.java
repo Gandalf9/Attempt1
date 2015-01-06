@@ -30,7 +30,7 @@ public class SectionRepositoryImpl implements SectionRepository {
 		decision.getArticle8Section().setGrantAsylumSubSection(section);
 		store.put(decisionId, decision);
 		
-		logger.info("section " + section);
+		//logger.info("section " + section);
 		
 		return decision;
 	}

@@ -1,0 +1,24 @@
+package org.gov.adm.rules
+ 
+import org.gov.adm.businessobjects.GrantAsylumData;
+global StringUtil util;
+
+import function org.gov.adm.rules.Helper.addString;
+rule "RuleGrantAsylum"
+    when
+        grantAsylum : GrantAsylumData( granted )
+    then
+        System.out.println("Asylum Granted " );
+        addString(kcontext, "Granted");
+        
+end
+
+rule "DontGrantAsylum"
+    when
+        grantAsylum : GrantAsylumData( !granted )
+    then
+        System.out.println("Asylum  Not Granted " );
+        addString(kcontext, "Continue");
+        
+end
+

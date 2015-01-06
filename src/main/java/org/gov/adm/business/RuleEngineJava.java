@@ -8,6 +8,7 @@ public class RuleEngineJava implements RuleEngine {
 
 	@Override
 	public String fireRuleGrantAsylum(Decision decision) {
+		
 		if (decision.getArticle8Section().getGrantAsylumSubSection().getGrantAsylumData().isGranted()) {
 			return GRANTED;
 		} else {
@@ -57,4 +58,6 @@ public class RuleEngineJava implements RuleEngine {
 	public String firePrivateLife(Decision decision) {
 		return NO_RULE_NEEDED;
 	}
+	
+	
 }
