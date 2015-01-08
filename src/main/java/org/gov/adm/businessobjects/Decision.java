@@ -1,37 +1,34 @@
 package org.gov.adm.businessobjects;
 
+import java.util.Map;
+
 public class Decision {
 
 	private int id;
-	private Article8Section article8Section;
-	private XSection xSection;
-	
-	public Decision() {
-		article8Section = new Article8Section();
-		xSection = new XSection();
-	}
+	private String currentSection;
+	private Map<String, Section> sections;
 
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public Article8Section getArticle8Section() {
-		return article8Section;
+
+	public String getCurrentSection() {
+		return currentSection;
 	}
 
-	public void setArticle8Section(Article8Section article8Section) {
-		this.article8Section = article8Section;
+	public void setCurrentSection(String currentSection) {
+		this.currentSection = currentSection;
 	}
 
-	public XSection getxSection() {
-		return xSection;
+	public Map<String, Section> getSections() {
+		return sections;
 	}
 
-	public void setxSection(XSection xSection) {
-		this.xSection = xSection;
+	public void setSections(Map<String, Section> sections) {
+		this.sections = sections;
 	}
 }
